@@ -5,6 +5,7 @@
     <Page title="{i18n>homePageTitle}" class="sapUiResponsiveContentPadding">
         <content>
             <Button id="displayNotFoundBtn" text="{i18n>DisplayNotFound}" class="sapUiTinyMarginEnd" press="onDisplayNotFound" />
+            <Button id="employeeListBtn" text= "{i18n>ShowEmployeeList}" class="sapUiTinyMarginEnd" press="onNavToEmployees" />        
         </content>
     </Page>
 </mvc:View>

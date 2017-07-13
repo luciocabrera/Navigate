@@ -66,10 +66,17 @@
 
             },
             "routes": [{
-                "pattern": "",
-                "name": "appHome",
-                "target": "home"
-            }],
+                    "pattern": "",
+                    "name": "appHome",
+                    "target": "home"
+                },
+                {
+                    "pattern": "employees",
+                    "name": "employeeList",
+                    "target": "employees"
+                }
+
+            ],
             "targets": {
                 "home": {
                     "viewName": "Home",
@@ -78,6 +85,11 @@
                 "notFound": {
                     "viewName": "NotFound",
                     "transition": "show"
+                },
+                "employees": {
+                    "viewPath": "sap.ui.demo.nav.view.employee",
+                    "viewName": "employeeList",
+                    "viewLevel": 2
                 }
             }
         }
