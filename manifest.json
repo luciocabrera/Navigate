@@ -81,7 +81,7 @@
                     "target": "employee"
                 },
                 {
-                    "pattern": "employees/{employeeId}/employeeResume",
+                    "pattern": "employees/{employeeId}/employeeResume:?Query:",
                     "name": "employeeResume",
                     "target": "employeeResume"
                 }
