@@ -1,13 +1,11 @@
 <mvc:View
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    controllerName="sap.ui.demo.nav.controller.employee.EmployeeList">
-<Page 
-    id="employeeListPage" 
-    title="EmployeeList" 
-    class="sapUiResponsiveContentPadding"
-    showNavButton="true"
-    navButtonPress="onNavBack">
+	controllerName="sap.ui.demo.nav.controller.employee.EmployeeList"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="employeeListPage" title="{i18n>EmployeeList}"
+		showNavButton="true"
+		navButtonPress="onNavBack"
+		class="sapUiResponsiveContentPadding">
 		<content>
 			<List id="employeeList" headerText="{i18n>ListOfAllEmployees}" items="{/Employees}">
 				<items>
@@ -20,5 +18,5 @@
 				</items>
 			</List>
 		</content>
-</Page>
+	</Page>
 </mvc:View>

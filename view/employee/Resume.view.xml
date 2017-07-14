@@ -26,7 +26,6 @@
 					</IconTabFilter>
 					<IconTabFilter id="hobbiesTab" text="{i18n>Hobbies}" key="Hobbies">
 						<!-- place content via lazy loading -->
-						<Text text="test....      " />
 					</IconTabFilter>
 					<IconTabFilter id="notesTab" text="{i18n>Notes}" key="Notes">
 						<!-- place content via lazy loading -->
