@@ -81,7 +81,7 @@
                     "target": "employee"
                 },
                 {
-                    "pattern": "employees/{employeeId}/employeeResume:?Query:",
+                    "pattern": "employees/{employeeId}/resume:?qSuery:",
                     "name": "employeeResume",
                     "target": "employeeResume"
                 }
@@ -108,6 +108,21 @@
                     "viewName": "employee.Resume",
                     "viewLevel": 4,
                     "transition": "flip"
+                },
+                "resumeTabHobbies": {
+                    "parent": "employeeResume",
+                    "viewPath": "sap.ui.demo.nav.view.employee",
+                    "viewName": "ResumeHobbies",
+                    "viewId": "thisIsMyCustomIdToBeUsedForResumeHobbies",
+                    "controlId": "hobbiesTab",
+                    "controlAggregation": "content"
+                },
+                "resumeTabNotes": {
+                    "parent": "employeeResume",
+                    "viewPath": "sap.ui.demo.nav.view.employee",
+                    "viewName": "ResumeNotes",
+                    "controlId": "notesTab",
+                    "controlAggregation": "content"
                 }
             }
         }

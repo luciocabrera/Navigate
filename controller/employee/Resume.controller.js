@@ -14,6 +14,7 @@ sap.ui.define([
             oRouter.getRoute("employeeResume").attachMatched(this._onRouteMatched, this);
 
         },
+
         _onRouteMatched: function(oEvent) {
             var oArgs, oView, oQuery;
 
@@ -33,33 +34,47 @@ sap.ui.define([
                 }
             });
 
-            oQuery = oArgs["?Query"];
-
+            oQuery = oArgs["?query"];
             if (oQuery && _aValidTabKeys.indexOf(oQuery.tab) > -1) {
-                oView.getModel().setProperty("/selectedTabKey", oQuery.tab);
+                oView.getModel("view").setProperty("/selectedTabKey", oQuery.tab);
+                // support lazy loading for the hobbies and notes tab
+                if (oQuery.tab === "Hobbies" || oQuery.tab === "Notes") {
+                    // the target is either "resumeTabHobbies" or "resumeTabNotes"
+                    this.getRouter().getTargets().display("resumeTab" + oQuery.tab);
+                }
             } else {
+                // the default query param should be visible at all time
                 this.getRouter().navTo("employeeResume", {
                     employeeId: oArgs.employeeId,
                     query: {
                         tab: _aValidTabKeys[0]
                     }
-                }, true);
+                }, true /*no history*/ );
             }
         },
+
         _onBindingChange: function(oEvent) {
+            // No data for the binding
             if (!this.getView().getBindingContext()) {
                 this.getRouter().getTargets().display("notFound");
             }
         },
-        onTabSelect: function(oEvent) {
 
+        /**
+         * We use this event handler to update the hash in case a new tab is selected.
+         * @param oEvent
+         */
+        onTabSelect: function(oEvent) {
             var oCtx = this.getView().getBindingContext();
+
             this.getRouter().navTo("employeeResume", {
                 employeeId: oCtx.getProperty("EmployeeID"),
                 query: {
                     tab: oEvent.getParameter("selectedKey")
                 }
-            }, true);
+            }, true /*without history*/ );
         }
+
     });
+
 });
