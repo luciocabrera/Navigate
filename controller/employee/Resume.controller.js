@@ -2,21 +2,17 @@ sap.ui.define([
     "sap/ui/demo/nav/controller/BaseController"
 ], function(BaseController) {
     "use strict";
-    return BaseController.extend("sap.ui.demo.nav.controller.employee.Employee", {
 
-        //When the object is loaded
+    return BaseController.extend("sap.ui.demo.nav.controller.employee.Resume", {
         onInit: function() {
             var oRouter = this.getRouter();
-            oRouter.getRoute("employee").attachMatched(this._onRouteMatched, this);
+            oRouter.getRoute("employeeResume").attachMatched(this._onRouteMatched, this);
         },
-
-        //when the route matched then we retrieve the arguments and the view
-        //It is a function that receive an event as parameter        
         _onRouteMatched: function(oEvent) {
             var oArgs, oView;
+
             oArgs = oEvent.getParameter("arguments");
             oView = this.getView();
-
             oView.bindElement({
                 path: "/Employees(" + oArgs.employeeId + ")",
                 events: {
@@ -31,20 +27,9 @@ sap.ui.define([
             });
         },
         _onBindingChange: function(oEvent) {
-
             if (!this.getView().getBindingContext()) {
                 this.getRouter().getTargets().display("notFound");
             }
-        },
-
-        onShowResume: function(oEvent) {
-
-            var oCtx;
-            oCtx = this.getView().getElementBinding().getBoundContext();
-
-            this.getRouter().navTo("employeeResume", {
-                employeeId: oCtx.getProperty("EmployeeID")
-            });
         }
     });
 });
